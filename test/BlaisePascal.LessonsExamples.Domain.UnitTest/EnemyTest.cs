@@ -9,7 +9,7 @@ namespace BlaisePascal.LessonsExamples.Domain.UnitTest
             //Arrange
             Enemy newEnemy = new Enemy();
 
-            //Actit
+            //Act
             newEnemy.SetName("Stefano");
 
             //Assert
@@ -30,6 +30,19 @@ namespace BlaisePascal.LessonsExamples.Domain.UnitTest
 
 
         }
+        [Fact]
+        public void EnemyName_TheNameCannotBeEmpty()
+        {
+            //Arrange
+            Enemy newEnemy = new Enemy();
 
+            //Act
+            newEnemy.SetName("");
+
+            //Assert
+            Assert.Equal("", newEnemy.GetName());
+
+
+        }
     }
 }
