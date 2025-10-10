@@ -8,5 +8,8 @@ namespace BlaisePascal.LessonsExamples.Domain
 {
     internal class Attack
     {
+        private int _attackDamage;
+        private int _attackSpeed;
+        private int _damageReduction;
     }
 }
