@@ -39,16 +39,21 @@
         {
             if (!string.IsNullOrWhiteSpace(newName))
                 Name = newName;
-                
+
         }
 
         public void SetHealth(int newHealth)
         {
             if (int.IsPositive(newHealth) && newHealth <= 100)
+            {
                 Health = newHealth;
-
+                IsAlive = true;
+            }
+            else
+            {
+                throw new ArgumentOutOfRangeException("Healt is out of range");
+            }
         }
-
 
         public void TakeDamage(int damage)
         {
@@ -65,9 +70,7 @@
                 IsAlive = false;
             }
 
-
-
         }
 
-
+    }
 }
