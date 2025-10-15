@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BlaisePascal.LessonsExamples.Domain
 {
-    internal class Player
+    internal class Hero
     {
     }
 }

@@ -17,20 +17,21 @@
         public int Health { get; private set; }
         public string Name { get; private set; }
         public string Description { get; private set; }
-        public bool IsAlive { get; private set; }
+        public bool IsAlive => Health > 0;
+
+
 
         // Constructor
         public Enemy() { }
         public Enemy(string name)
         {
             Name = name;
-            IsAlive = true;
+
         }
         public Enemy(string name, int health)
         {
             Name = name;
             Health = health;
-            IsAlive = true;
 
         }
 
@@ -47,30 +48,29 @@
             if (int.IsPositive(newHealth) && newHealth <= 100)
             {
                 Health = newHealth;
-                IsAlive = true;
             }
             else
             {
-                throw new ArgumentOutOfRangeException("Healt is out of range");
+                throw new ArgumentException("Healt is out of range");
             }
         }
 
         public void TakeDamage(int damage)
         {
-            if (int.IsNegative(damage))
-                throw new ArgumentOutOfRangeException("Damage cannot be negative");
-            if (damage < Health && IsAlive == true)
-            {
-                // Health Math.Min(0, Health damage);
-                Health -= damage;
-            }
-            else
-            {
-                Health = 0;
-                IsAlive = false;
-            }
+            if (damage < 0)
+                throw new ArgumentException("Damage cannot be negative");
+
+            Health = Math.Max(CharacterValidator.MinHealth, Health -= damage);
 
         }
+        public void Heal(int healAmount)
+        {
+            if (healAmount < 0)
+                throw new ArgumentException("Heal amount cannot be negative");
 
+    
+            Health = Math.Min(CharacterValidator.MaxHealth, Health += healAmount);
+
+        }
     }
 }

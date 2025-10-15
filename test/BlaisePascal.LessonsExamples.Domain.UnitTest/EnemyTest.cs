@@ -145,5 +145,27 @@ namespace BlaisePascal.LessonsExamples.Domain.UnitTest
             Assert.Equal(0, newEnemy.Health);
             Assert.False(newEnemy.IsAlive);
         }
+        [Fact]
+        public void Heal_WhenHealAmountIsValid_HealthMustIncrease()
+        {
+            //Arrange
+            Enemy newEnemy = new Enemy();
+            newEnemy.SetHealth(50);
+            //Act
+            newEnemy.Heal(30);
+            //Assert
+            Assert.Equal(80, newEnemy.Health);
+        }
+        [Fact]
+        public void Heal_WhenHealAmountIsNegative_ThrowsArgumentOutOfRangeException()
+        {
+            //Arrange
+            Enemy newEnemy = new Enemy();
+
+            //Act
+            newEnemy.SetHealth(50);
+            //Assert
+            // IMPORTANTE: Come si fa a testare il lancio di un errore?
+        }
     }
 }
