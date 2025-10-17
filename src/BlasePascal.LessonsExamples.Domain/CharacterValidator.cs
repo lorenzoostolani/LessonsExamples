@@ -8,7 +8,6 @@ namespace BlaisePascal.LessonsExamples.Domain
 {   
     public static class CharacterValidator
     {
-
         public const int MinHealth = 0;
         public const int MaxHealth = 100;
 
@@ -27,6 +26,5 @@ namespace BlaisePascal.LessonsExamples.Domain
             return health;
         }
 
-        //TODO: Add ValidateHealth method
     }
 }

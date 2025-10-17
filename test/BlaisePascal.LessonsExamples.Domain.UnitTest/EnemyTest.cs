@@ -2,11 +2,9 @@ namespace BlaisePascal.LessonsExamples.Domain.UnitTest
 {
     public class EnemyTest
     {
-        //IMPORTANTE: Il construttore non ha controlli su health e name?
-        
-        
-        
-        
+
+        //SetName tests
+
         [Fact]
         public void EnemyName_WhenTheNameIsValid_NameMustBeAssignedCorrectly()
         {
@@ -28,10 +26,8 @@ namespace BlaisePascal.LessonsExamples.Domain.UnitTest
             //Arrange
             Enemy newEnemy = new Enemy();
 
-
             //Assert
             Assert.Null(newEnemy.Name);
-
 
         }
         [Fact]
@@ -40,11 +36,9 @@ namespace BlaisePascal.LessonsExamples.Domain.UnitTest
             //Arrange
             Enemy newEnemy = new Enemy();
 
-            //Act
-            newEnemy.SetName("");
 
             //Assert
-            Assert.Null(newEnemy.Name);
+            Assert.Throws<ArgumentException>(() => newEnemy.SetName(""));
 
 
         }
@@ -53,17 +47,14 @@ namespace BlaisePascal.LessonsExamples.Domain.UnitTest
         {
             //Arrange
             Enemy newEnemy = new Enemy();
-            //Act
-            newEnemy.SetName("   ");
+
             //Assert
-            Assert.Null(newEnemy.Name);
+            Assert.Throws<ArgumentException>(() => newEnemy.SetName("   "));    
         }
 
 
 
-
-
-
+        // SetHealth tests
 
         [Fact]
         public void SetHealth_WhenTheHealthIsValid_HealthMustBeAssignedCorrectly()
@@ -74,43 +65,30 @@ namespace BlaisePascal.LessonsExamples.Domain.UnitTest
             newEnemy.SetHealth(50);
             //Assert
             Assert.Equal(50, newEnemy.Health);
+            Assert.True(newEnemy.IsAlive);
         }
         [Fact]
         public void SetHealth_TheHealthCannotBeNegative()
         {
             //Arrange
             Enemy newEnemy = new Enemy();
-            //Act
-            newEnemy.SetHealth(-10);
+            
             //Assert
-            // IMPORTANTE: Come si fa a testare il lancio di un errore?
+            Assert.Throws<ArgumentOutOfRangeException>(() => newEnemy.SetHealth(-10));
         }
         [Fact]
         public void SetHealth_TheHealthCannotBeGreaterThan100()
         {
             //Arrange
             Enemy newEnemy = new Enemy();
-            //Act
-            newEnemy.SetHealth(150);
+
             //Assert
-            // IMPORTANTE: Come si fa a testare il lancio di un errore?
-        }
-        [Fact]
-        public void SetHealth_WhenHealthIsSetToPositiveValue_IsAliveMustBeTrue()
-        {
-            //Arrange
-            Enemy newEnemy = new Enemy();
-            //Act
-            newEnemy.SetHealth(50);
-            //Assert
-            Assert.True(newEnemy.IsAlive);
+            Assert.Throws<ArgumentOutOfRangeException>(() => newEnemy.SetHealth(150));
         }
 
 
 
-
-
-        // Take damege tests
+        // Take damage tests
 
         [Fact]
         public void TakeDamage_WhenDamageIsValid_HealthMustDecrease()
@@ -123,6 +101,7 @@ namespace BlaisePascal.LessonsExamples.Domain.UnitTest
             newEnemy.TakeDamage(damage);
             //Assert
             Assert.Equal(70, newEnemy.Health);
+            Assert.True(newEnemy.IsAlive);
         }
         [Fact]
         public void TakeDamage_WhenDamageIsNegative_ThrowsArgumentOutOfRangeException()
@@ -135,13 +114,13 @@ namespace BlaisePascal.LessonsExamples.Domain.UnitTest
             Assert.Throws<ArgumentException>(() => newEnemy.TakeDamage(damage));
         }
         [Fact]
-        public void TakeDamage_WhenDamageIsGreaterThanCurrentHealth_HealthMustBeZeroAndIsAliveMustBeFalse()
+        public void TakeDamage_WhenDamageIsGreaterThanCurrentHealth_HealthMustBeZero()
         {
             //Arrange
-            Enemy newEnemy = new Enemy();
-            newEnemy.SetHealth(50);
+            Enemy newEnemy = new Enemy("Goblin", 50);
+            int damage = 70;
             //Act
-            newEnemy.TakeDamage(70);
+            newEnemy.TakeDamage(damage);
             //Assert
             Assert.Equal(0, newEnemy.Health);
             Assert.False(newEnemy.IsAlive);
@@ -154,23 +133,38 @@ namespace BlaisePascal.LessonsExamples.Domain.UnitTest
         public void Heal_WhenHealAmountIsValid_HealthMustIncrease()
         {
             //Arrange
-            Enemy newEnemy = new Enemy();
-            newEnemy.SetHealth(50);
+            Enemy newEnemy = new Enemy("Goblin", 50);
+            int healAmount = 30;
             //Act
-            newEnemy.Heal(30);
+            newEnemy.Heal(healAmount);
             //Assert
             Assert.Equal(80, newEnemy.Health);
+            Assert.True(newEnemy.IsAlive);
         }
         [Fact]
         public void Heal_WhenHealAmountIsNegative_ThrowsArgumentOutOfRangeException()
         {
             //Arrange
-            Enemy newEnemy = new Enemy();
+            Enemy newEnemy = new Enemy("Goblin", 100);
+            int healAmount = -20;
+
+            //Assert & Act
+            Assert.Throws<ArgumentException>(() => newEnemy.Heal(healAmount));
+        }
+
+        [Fact]
+        public void Heal_WhenHealAmountExceedsMaxHealth_HealthMustBeCappedAt100()
+        {
+            //Arrange
+            Enemy newEnemy = new Enemy("Goblin", 90);
+            int healAmount = 20;
 
             //Act
-            newEnemy.SetHealth(50);
+            newEnemy.Heal(healAmount);
+
             //Assert
-            // IMPORTANTE: Come si fa a testare il lancio di un errore?
+            Assert.Equal(100, newEnemy.Health);
+            Assert.True(newEnemy.IsAlive);
         }
     }
 }

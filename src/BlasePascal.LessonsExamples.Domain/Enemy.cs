@@ -38,21 +38,13 @@
         // Function
         public void SetName(string newName)
         {
-            if (!string.IsNullOrWhiteSpace(newName))
-                Name = newName;
+            Name = CharacterValidator.ValidateName(newName);
 
         }
 
         public void SetHealth(int newHealth)
         {
-            if (int.IsPositive(newHealth) && newHealth <= 100)
-            {
-                Health = newHealth;
-            }
-            else
-            {
-                throw new ArgumentException("Healt is out of range");
-            }
+            Health = CharacterValidator.ValidateHealth(newHealth);
         }
 
         public void TakeDamage(int damage)
