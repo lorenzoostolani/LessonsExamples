@@ -105,21 +105,22 @@ namespace BlaisePascal.LessonsExamples.Domain.UnitTest
             //Assert
             Assert.True(newEnemy.IsAlive);
         }
-        
-        
-        
-        
-        
-        
-        
+
+
+
+
+
+        // Take damege tests
+
         [Fact]
         public void TakeDamage_WhenDamageIsValid_HealthMustDecrease()
         {
             //Arrange
-            Enemy newEnemy = new Enemy();
-            newEnemy.SetHealth(100);
+            Enemy newEnemy = new Enemy("Goblin", 100);
+            int damage = 30;
+
             //Act
-            newEnemy.TakeDamage(30);
+            newEnemy.TakeDamage(damage);
             //Assert
             Assert.Equal(70, newEnemy.Health);
         }
@@ -127,11 +128,11 @@ namespace BlaisePascal.LessonsExamples.Domain.UnitTest
         public void TakeDamage_WhenDamageIsNegative_ThrowsArgumentOutOfRangeException()
         {
             //Arrange
-            Enemy newEnemy = new Enemy();
-            //Act
-            newEnemy.SetHealth(100);
-            //Assert
-            // IMPORTANTE: Come si fa a testare il lancio di un errore?
+            Enemy newEnemy = new Enemy("Goblin", 100);
+            int damage = -20;
+
+            //Assert & Act
+            Assert.Throws<ArgumentException>(() => newEnemy.TakeDamage(damage));
         }
         [Fact]
         public void TakeDamage_WhenDamageIsGreaterThanCurrentHealth_HealthMustBeZeroAndIsAliveMustBeFalse()
@@ -145,6 +146,10 @@ namespace BlaisePascal.LessonsExamples.Domain.UnitTest
             Assert.Equal(0, newEnemy.Health);
             Assert.False(newEnemy.IsAlive);
         }
+
+
+        // Heal tests
+
         [Fact]
         public void Heal_WhenHealAmountIsValid_HealthMustIncrease()
         {

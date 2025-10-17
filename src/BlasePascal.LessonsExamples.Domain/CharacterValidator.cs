@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BlaisePascal.LessonsExamples.Domain
 {   
-    public static  class CharacterValidator
+    public static class CharacterValidator
     {
 
         public const int MinHealth = 0;
@@ -18,6 +18,13 @@ namespace BlaisePascal.LessonsExamples.Domain
                 throw new ArgumentException("Name cannot be null, empty, or whitespace.");
             
             return name;
+        }
+
+        public static int ValidateHealth(int health)
+        {
+            if (health < MinHealth || health > MaxHealth)
+                throw new ArgumentOutOfRangeException($"Health must be between {MinHealth} and {MaxHealth}.");
+            return health;
         }
 
         //TODO: Add ValidateHealth method
