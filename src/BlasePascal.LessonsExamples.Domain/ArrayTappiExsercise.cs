@@ -8,18 +8,33 @@ namespace BlaisePascal.LessonsExamples.Domain
 {
     public class ArrayTappiExsercise
     {
-        public int[] Array { get; private set; }
-
-        public ArrayTappiExsercise(int[] array)
-        {
-            Array = array;
-        }
-
-        public bool ContainsAllNumber()
+        public ArrayTappiExsercise() { }   
+        public bool ContainsAllNumber(int[] array)
         {
             for (int i = 1; i < 10; i++)
             {
-                if (!Array.Contains(i)) 
+                if (!array.Contains(i)) 
+                {
+                    return false;
+                }
+            }
+            return true;
+        }
+
+        public bool ContainsAllNumbersNoContains(int[] array)
+        {
+            for (int i = 1; i < 10; i++)
+            {
+                bool isContained = false;
+                foreach (int n in array) 
+                {
+                    if (n == i)
+                    {
+                        isContained = true;
+                        break;
+                    }
+                }
+                if (!isContained)
                 {
                     return false;
                 }
