@@ -41,5 +41,30 @@ namespace BlaisePascal.LessonsExamples.Domain
             }
             return true;
         }
+
+        public int FindMostFrequentNumber(int[] array) 
+        {
+            int[] count = new int[10];
+            for (int i = 1; i < 10; i++)
+            {
+                foreach(int num in array)
+                {
+                    if (num == i)
+                        count[i]++;
+                }
+            }
+
+            int mostFrequentnNum = 0;
+            int highestFrequence = 0;
+            for (int i = 1; i < count.Length; i++)
+            {
+                if (count[i] > highestFrequence)
+                {
+                    mostFrequentnNum = i;
+                    highestFrequence = count[i];
+                }
+            }
+            return mostFrequentnNum;
+        }
     }
 }
