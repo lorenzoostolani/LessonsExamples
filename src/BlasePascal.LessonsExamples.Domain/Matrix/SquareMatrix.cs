@@ -50,7 +50,8 @@ namespace BlaisePascal.LessonsExamples.Domain.Matrix
                     else
                         k = -1;
 
-                    // Espansione di Laplace: elemento * segno * determinante della sottomatrice
+                    // Espansione di Laplace: elemento * segno * determinante del
+                    // la sottomatrice
                     result += k * matrix[r, c] * Determinant(SubMatrix(matrix, r, c));
                 }
             }
@@ -58,28 +59,69 @@ namespace BlaisePascal.LessonsExamples.Domain.Matrix
             return result;
         }
 
-        public SquareMatrix SubMatrix(SquareMatrix matrix, int row, int col)
+        private SquareMatrix SubMatrix(SquareMatrix matrix, int row, int col)
         {
             SquareMatrix subMatrix = new SquareMatrix(matrix.Rows-1);
+            
             int r= 0;
             int c = 0;
-            for (int j = 0; j<Rows; j++)
+            for (int j = 0; j< matrix.Rows; j++)
             {
                 if (row == j)
                     continue;
 
-                r++;
-                for (int k = 0; k < Rows; k++)
+                c= 0;   
+
+                for (int k = 0; k < matrix.Rows; k++)
                 {
                     if (col == k)
                         continue;
-                    c++;
+                    
                     subMatrix[r, c] = matrix[j, k];
-
+                    c++;
                 }
+
+                r++;
             }
             return subMatrix;
         }
+
+        public double[] SolveSystemOfEquation(SquareMatrix matrix, double[] coeffArray) 
+        { 
+
+            int dim = matrix.Dimension;
+            double detA = Determinant(matrix);
+
+            if (detA == 0)
+                throw new Exception("The system has no determined solution");
+
+            double[] solutions = new double[dim];
+
+            for (int i = 0; i < dim; i++)
+            {
+                double detAi = Determinant(ChangeColumn(matrix, coeffArray, i));
+                solutions[i] = detAi / detA;
+            }
+            return solutions;
+        }
+
+        public SquareMatrix ChangeColumn(SquareMatrix matrix, double[] newColumn, int colIndex)
+        {
+            SquareMatrix newMatrix = new SquareMatrix(matrix.Dimension);
+            for (int r = 0; r < matrix.Dimension; r++)
+            {
+                for (int c = 0; c < matrix.Dimension; c++)
+                {
+                    if (c == colIndex)
+                        newMatrix[r, c] = newColumn[r];
+                    else
+                        newMatrix[r, c] = matrix[r, c];
+                }
+            }
+            return newMatrix;
+        }
+
+
     }
 
 }

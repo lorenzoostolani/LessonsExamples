@@ -22,7 +22,6 @@ namespace BlaisePascal.LessonsExamples.Domain
         public void ChangeColorTo(Color newColor)
         {
             Color = newColor;
-            Color.red = 0;
             Color = new Color(0, 0, 0);
         }
 
