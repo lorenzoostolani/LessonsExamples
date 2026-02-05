@@ -33,6 +33,7 @@ namespace BlaisePascal.LessonsExamples.Domain.Matrix
             int dim = matrix.Dimension;   // Dimensione matrice di input.
             double result = 0;
 
+
             if (dim == 2)
             {
                 result = matrix[0, 0] * matrix[1, 1] - matrix[0, 1] * matrix[1, 0];
@@ -63,7 +64,7 @@ namespace BlaisePascal.LessonsExamples.Domain.Matrix
         {
             SquareMatrix subMatrix = new SquareMatrix(matrix.Rows-1);
             
-            int r= 0;
+            int r = 0;
             int c = 0;
             for (int j = 0; j< matrix.Rows; j++)
             {
@@ -92,7 +93,7 @@ namespace BlaisePascal.LessonsExamples.Domain.Matrix
             int dim = matrix.Dimension;
             double detA = Determinant(matrix);
 
-            if (detA == 0)
+            if (Math.Abs(detA) < 1e-15)
                 throw new Exception("The system has no determined solution");
 
             double[] solutions = new double[dim];

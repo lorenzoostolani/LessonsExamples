@@ -26,7 +26,7 @@ namespace BlaisePascal.LessonsExamples.Domain.UnitTest
         public void SolveSystem_2x2_Test()
         {
 
-            SquareMatrix m = new SquareMatrix(3);
+            SquareMatrix m = new SquareMatrix(2);
             m[0, 0] = 2; m[0, 1] = 1; 
             m[1, 0] = 1; m[1, 1] = -1;
 
@@ -34,8 +34,27 @@ namespace BlaisePascal.LessonsExamples.Domain.UnitTest
 
             double[] result = m.SolveSystemOfEquation(m, coeffs);
 
-            Assert.Equal(2.0, result[0], 1e-9);
-            Assert.Equal(1.0, result[1], 1e-9);
+            Assert.Equal(2.0, result[0]);
+            Assert.Equal(1.0, result[1]);
         }
+
+        [Fact]
+        public void SolveSystem_3x3_Test()
+        {
+            SquareMatrix m = new SquareMatrix(3);
+
+            m[0, 0] = 1; m[0, 1] = 1; m[0, 2] = 1;
+            m[1, 0] = 0; m[1, 1] = 1; m[1, 2] = 2;
+            m[2, 0] = 2; m[2, 1] = 1; m[2, 2] = 0;
+
+            double[] coeffs = { 6, 8, 4 };
+
+            double[] result = m.SolveSystemOfEquation(m, coeffs);
+
+            Assert.Equal(1.0, result[0]);
+            Assert.Equal(2.0, result[1]);
+            Assert.Equal(3.0, result[2]);
+        }
+
     }
 }
