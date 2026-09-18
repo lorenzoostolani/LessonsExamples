@@ -9,9 +9,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "docs", "docs", "{55906C39-0
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{F79EFB76-A5D5-4A55-8BEA-BD16F5E2D8C8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlaisePascal.LessonsExamples.Domain", "src\BlasePascal.LessonsExamples.Domain\BlaisePascal.LessonsExamples.Domain.csproj", "{CEA269A6-3970-4A79-8534-623EAC6BC1DF}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlaisePascal.LessonExample.Console", "src\BlaisePascal.LessonExample.Console\BlaisePascal.LessonExample.Console.csproj", "{55AAAD68-F6B4-4118-AA72-0BBBE4392B89}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlaisePascal.LessonsExamples.Domain.UnitTest", "test\BlaisePascal.LessonsExamples.Domain.UnitTest\BlaisePascal.LessonsExamples.Domain.UnitTest.csproj", "{1203D535-3619-40F8-A746-47CDBDCC1698}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlaisePascal.LessonsExamples.Domain", "src\BlaisePascal.LessonsExamples.Domain\BlaisePascal.LessonsExamples.Domain.csproj", "{4AF25C94-90FA-365B-B6AA-9F21FB7EE4D4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlaisePascal.LessonsExamples.Domain.UnitTest", "test\BlaisePascal.LessonsExamples.Domain.UnitTest\BlaisePascal.LessonsExamples.Domain.UnitTest.csproj", "{FD9EECC9-103A-F89A-3017-4D0C49DA4B8B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -19,21 +21,26 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{CEA269A6-3970-4A79-8534-623EAC6BC1DF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{CEA269A6-3970-4A79-8534-623EAC6BC1DF}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{CEA269A6-3970-4A79-8534-623EAC6BC1DF}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{CEA269A6-3970-4A79-8534-623EAC6BC1DF}.Release|Any CPU.Build.0 = Release|Any CPU
-		{1203D535-3619-40F8-A746-47CDBDCC1698}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{1203D535-3619-40F8-A746-47CDBDCC1698}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{1203D535-3619-40F8-A746-47CDBDCC1698}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{1203D535-3619-40F8-A746-47CDBDCC1698}.Release|Any CPU.Build.0 = Release|Any CPU
+		{55AAAD68-F6B4-4118-AA72-0BBBE4392B89}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{55AAAD68-F6B4-4118-AA72-0BBBE4392B89}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{55AAAD68-F6B4-4118-AA72-0BBBE4392B89}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{55AAAD68-F6B4-4118-AA72-0BBBE4392B89}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4AF25C94-90FA-365B-B6AA-9F21FB7EE4D4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4AF25C94-90FA-365B-B6AA-9F21FB7EE4D4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4AF25C94-90FA-365B-B6AA-9F21FB7EE4D4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4AF25C94-90FA-365B-B6AA-9F21FB7EE4D4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FD9EECC9-103A-F89A-3017-4D0C49DA4B8B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FD9EECC9-103A-F89A-3017-4D0C49DA4B8B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FD9EECC9-103A-F89A-3017-4D0C49DA4B8B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FD9EECC9-103A-F89A-3017-4D0C49DA4B8B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{CEA269A6-3970-4A79-8534-623EAC6BC1DF} = {6C83A596-D32D-B35F-00DD-F0C99B673980}
-		{1203D535-3619-40F8-A746-47CDBDCC1698} = {F79EFB76-A5D5-4A55-8BEA-BD16F5E2D8C8}
+		{55AAAD68-F6B4-4118-AA72-0BBBE4392B89} = {6C83A596-D32D-B35F-00DD-F0C99B673980}
+		{4AF25C94-90FA-365B-B6AA-9F21FB7EE4D4} = {6C83A596-D32D-B35F-00DD-F0C99B673980}
+		{FD9EECC9-103A-F89A-3017-4D0C49DA4B8B} = {F79EFB76-A5D5-4A55-8BEA-BD16F5E2D8C8}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {BB5247C3-01BB-4FCC-A28D-20B181FC1230}

@@ -26,7 +26,7 @@ namespace BlaisePascal.LessonsExamples.Domain.OrarioProfInfo
 
         public override string ToString()
         {
-            return Name;
+            return $"{Name} ({AssignedHours}/{TotalHours} ore)";
         }
     }
 }
