@@ -8,7 +8,16 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\BlaisePascal.LessonExamples.Application\BlaisePascal.LessonExamples.Application.csproj" />
     <ProjectReference Include="..\BlaisePascal.LessonsExamples.Domain\BlaisePascal.LessonsExamples.Domain.csproj" />
+    <ProjectReference Include="..\BlaisePascal.LessonsExamples.Infrastracture\BlaisePascal.LessonsExamples.Infrastracture.csproj" />
   </ItemGroup>
+
+	<ItemGroup>
+		<None Include="..\..\data\*.txt">
+			<Link>Data\%(Filename)%(Extension)</Link>
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</None>
+	</ItemGroup>
 
 </Project>

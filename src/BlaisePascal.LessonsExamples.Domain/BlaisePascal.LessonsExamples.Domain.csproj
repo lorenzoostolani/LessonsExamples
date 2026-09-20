@@ -6,4 +6,42 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Compile Remove="BookingLab\**" />
+    <Compile Remove="Cell\**" />
+    <Compile Remove="Coin\**" />
+    <Compile Remove="GooseGame\**" />
+    <Compile Remove="Heroes\**" />
+    <Compile Remove="Matrix\**" />
+    <Compile Remove="PerfectSequence\**" />
+    <Compile Remove="Student\**" />
+    <Compile Remove="TestSimulation2\**" />
+    <Compile Remove="TestSimulation\**" />
+    <EmbeddedResource Remove="BookingLab\**" />
+    <EmbeddedResource Remove="Cell\**" />
+    <EmbeddedResource Remove="Coin\**" />
+    <EmbeddedResource Remove="GooseGame\**" />
+    <EmbeddedResource Remove="Heroes\**" />
+    <EmbeddedResource Remove="Matrix\**" />
+    <EmbeddedResource Remove="PerfectSequence\**" />
+    <EmbeddedResource Remove="Student\**" />
+    <EmbeddedResource Remove="TestSimulation2\**" />
+    <EmbeddedResource Remove="TestSimulation\**" />
+    <None Remove="BookingLab\**" />
+    <None Remove="Cell\**" />
+    <None Remove="Coin\**" />
+    <None Remove="GooseGame\**" />
+    <None Remove="Heroes\**" />
+    <None Remove="Matrix\**" />
+    <None Remove="PerfectSequence\**" />
+    <None Remove="Student\**" />
+    <None Remove="TestSimulation2\**" />
+    <None Remove="TestSimulation\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Remove="ArrayTappiExsercise.cs" />
+    <Compile Remove="Prova.cs" />
+  </ItemGroup>
+
 </Project>
